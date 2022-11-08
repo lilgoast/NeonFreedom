@@ -15,7 +15,6 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float controlRollFactor = -20f;
     [SerializeField] float positionPitchFactor = -1f;
     [SerializeField] float positionYawFactor = 1f;
-    [SerializeField] float forwardMovingSpeed = 1f;
 
     float xThrow, yThrow;
 
@@ -54,8 +53,7 @@ public class PlayerControls : MonoBehaviour
 
         float clampedXPosition = Mathf.Clamp(rawXPosition, xRange * -1, xRange);
         float clampedYPosition = Mathf.Clamp(rawYPosition, yMin, yMax);
-        float zPosition = transform.localPosition.z * forwardMovingSpeed * Time.deltaTime;
 
-        transform.localPosition = new Vector3(clampedXPosition, clampedYPosition, zPosition);
+        transform.localPosition = new Vector3(clampedXPosition, clampedYPosition, transform.localPosition.z);
     }
 }
