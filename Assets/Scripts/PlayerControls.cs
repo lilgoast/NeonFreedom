@@ -7,9 +7,9 @@ using UnityEngine.UIElements;
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
-    [SerializeField] float xRange = 2f;
-    [SerializeField] float yMin = 0.2f;
-    [SerializeField] float yMax = 2f;
+    public float xRange = 2f;
+    public float yMin = 0.2f;
+    public float yMax = 2f;
 
     [SerializeField] float controlPitchFactor = 20f;
     [SerializeField] float controlRollFactor = 20f;

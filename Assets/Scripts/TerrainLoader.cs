@@ -14,7 +14,7 @@ public class TerrainLoader : MonoBehaviour
     private float zSpawn = 0;
     private List<GameObject> activeTiles = new List<GameObject>();
 
-    void Start()
+    private void Start()
     {
         parent = GetComponent<Transform>();
 
@@ -24,7 +24,7 @@ public class TerrainLoader : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if(playerTransform.position.z - tileLength > zSpawn - (amountOfTiles * tileLength))
         {
