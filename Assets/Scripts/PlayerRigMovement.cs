@@ -8,7 +8,7 @@ public class PlayerRigMovement : MonoBehaviour
 
     void Update()
     {
-        float newZPosition = transform.localPosition.z - (movingSpeed * Time.deltaTime);
+        float newZPosition = transform.localPosition.z + (movingSpeed * Time.deltaTime);
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, newZPosition);
     }
 }
