@@ -10,7 +10,7 @@ public class TerrainLoader : MonoBehaviour
     [SerializeField] GameObject tilePrefab;
     [SerializeField] Transform playerTransform;
 
-    Transform parent;
+    private Transform parent;
     private float zSpawn = 0;
     private List<GameObject> activeTiles = new List<GameObject>();
 
