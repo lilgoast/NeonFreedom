@@ -34,7 +34,7 @@ public class LoopLoader : MonoBehaviour
 
     private float LoopsCalculation()
     {
-        float amountOfLoops = (songBPM * songLength) / loopReducer;
+        float amountOfLoops = (songBPM * (songLength/ 60)) / loopReducer;
         distanceBetweenLoops = (songLength * prm.moveSpeed) / amountOfLoops;
         zSpawn = distanceBetweenLoops;
 

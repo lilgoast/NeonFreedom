@@ -8,8 +8,9 @@ public class CameraFovChanger : MonoBehaviour
     [SerializeField] float maxFov = 90f;
     [SerializeField] float minFov = 60f;
     [SerializeField] float idleTime = 1.5f;
-    [SerializeField] uint cnahgeDistance = 50;
+    [SerializeField] uint changeDistance = 50;
     [SerializeField] uint changingSpeed = 10;
+    [SerializeField] uint smoothnessMultilpier = 10;
 
 
     private GameObject mainCamera;
@@ -23,7 +24,7 @@ public class CameraFovChanger : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraComponent = mainCamera.GetComponent<Camera>();
         tempIdleTime = idleTime;
-        timeBetweenFovChange = (float)changingSpeed / ((float)changingSpeed * (float)changingSpeed);
+        timeBetweenFovChange = ((float)changingSpeed / ((float)changingSpeed * (float)changingSpeed)) / (float)smoothnessMultilpier;
     }
 
     private void Update()
@@ -46,10 +47,10 @@ public class CameraFovChanger : MonoBehaviour
     {
         newTrigger = false;
         for (float i = cameraComponent.fieldOfView;
-            i < cameraComponent.fieldOfView + cnahgeDistance && cameraComponent.fieldOfView < maxFov && !newTrigger; 
+            i < cameraComponent.fieldOfView + changeDistance && cameraComponent.fieldOfView < maxFov && !newTrigger; 
             i++)
         {
-            cameraComponent.fieldOfView += 0.1f;
+            cameraComponent.fieldOfView += 0.1f / (float)smoothnessMultilpier;
             yield return new WaitForSeconds(timeBetweenFovChange);
         }
     }
