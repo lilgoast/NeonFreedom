@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerRig
+  - Music
+  - Loop
   layers:
   - Default
   - TransparentFX

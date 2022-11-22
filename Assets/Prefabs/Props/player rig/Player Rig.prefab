@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sun
       objectReference: {fileID: 0}
+    - target: {fileID: 6274620017965260187, guid: 6a0cb39db25cf2240983cef26df38ac6, type: 3}
+      propertyPath: m_Size
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a0cb39db25cf2240983cef26df38ac6, type: 3}
 --- !u!4 &2895607647369040260 stripped
@@ -371,26 +375,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 593f8e92ef84e4b4cbee2f712bdd0e11, type: 3}
   m_PrefabInstance: {fileID: 9168394778244662695}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9168394776487573173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8358056010419337462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcadc4fea773c7547bb082ce4e9b877f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  xRange: 1.8
-  yMin: 0.2
-  yMax: 2
-  controlPitchFactor: 20
-  controlRollFactor: 20
-  positionPitchFactor: -1
-  positionYawFactor: 1
 --- !u!54 &2022128243
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -415,11 +399,62 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8358056010419337462}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.0169997, y: 2.017, z: 2.017}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1375426446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358056010419337462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ccddaadf5c96649b2c1c9557dbdac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFov: 120
+  minFov: 60
+  idleTime: 0.65
+  changeDistance: 100
+  changingSpeed: 100
+  smoothnessMultilpier: 10
+--- !u!114 &6722320154927955388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358056010419337462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d3e2fe074c67ca458402073543a1fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
+--- !u!114 &9168394776487573173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358056010419337462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcadc4fea773c7547bb082ce4e9b877f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4
+  xRange: 1.8
+  yMin: 0.2
+  yMax: 2
+  controlPitchFactor: 20
+  controlRollFactor: 20
+  positionPitchFactor: -1
+  positionYawFactor: 1
 --- !u!4 &8698165036317450828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 593f8e92ef84e4b4cbee2f712bdd0e11, type: 3}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4671766099587316916}
   m_Layer: 0
   m_Name: center circle
-  m_TagString: Untagged
+  m_TagString: Loop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3820156798616037985}
   m_Layer: 0
   m_Name: loop
-  m_TagString: Untagged
+  m_TagString: Loop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
