@@ -23,7 +23,7 @@ public class CameraFovChanger : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         cameraComponent = mainCamera.GetComponent<Camera>();
         tempIdleTime = 0;
-        timeBetweenFovChange = ((float)changingSpeed / ((float)changingSpeed * (float)changingSpeed)) / (float)smoothnessMultilpier;
+        timeBetweenFovChange = (changingSpeed / (changingSpeed * changingSpeed)) / smoothnessMultilpier;
     }
 
     private void Update()
@@ -52,7 +52,7 @@ public class CameraFovChanger : MonoBehaviour
             i < cameraComponent.fieldOfView + changeDistance && cameraComponent.fieldOfView < maxFov && !newTrigger; 
             i++)
         {
-            cameraComponent.fieldOfView += 0.1f / (float)smoothnessMultilpier;
+            cameraComponent.fieldOfView += 0.1f / smoothnessMultilpier;
             yield return new WaitForSeconds(timeBetweenFovChange);
         }
     }

@@ -10,16 +10,13 @@ public class LoopLoader : MonoBehaviour
     [SerializeField] float songBPM = 100f;
     [SerializeField] float loopReducer = 100f;
     [SerializeField] GameObject loopPrefab;
+    [SerializeField] GameObject endPanelPrefab;
 
     public static float idleTime;
 
-    private GameObject music;
-    private GameObject playerRig;
-    private GameObject player;
     private Transform parent;
-    private PlayerRigMovement prm;
-    private PlayerControls pc;
-    private AudioSource audioSource;
+    private PlayerRigMovement playerRigMovement;
+    private PlayerControls playerControls;
     private float distanceBetweenLoops;
     private float zSpawn;
     private float songLength;
@@ -36,12 +33,19 @@ public class LoopLoader : MonoBehaviour
             CreateLoop();
         }
 
+        CreateEndPanel();
+    }
+
+    private void CreateEndPanel()
+    {
+        GameObject endPlane = Instantiate(endPanelPrefab, transform.forward * zSpawn, Quaternion.Euler(90, 0, 0), parent);
+        endPlane.transform.localPosition = new Vector3(0, 0, zSpawn);
     }
 
     private void LoopsCalculation()
     {
         amountOfLoops = (songBPM * (songLength/ 60)) / loopReducer;
-        distanceBetweenLoops = (songLength * prm.moveSpeed) / amountOfLoops;
+        distanceBetweenLoops = (songLength * playerRigMovement.moveSpeed) / amountOfLoops;
         zSpawn = distanceBetweenLoops;
         idleTime = songLength / amountOfLoops + 0.1f;
     }
@@ -50,8 +54,8 @@ public class LoopLoader : MonoBehaviour
     {
         GameObject currentLoop = Instantiate(loopPrefab, transform.forward * zSpawn, Quaternion.Euler(90, 0, 0), parent);
 
-        float xSpawn = UnityEngine.Random.Range(pc.xRange * -1, pc.xRange);
-        float ySpawn = UnityEngine.Random.Range(pc.yMin, pc.yMax);
+        float xSpawn = UnityEngine.Random.Range(playerControls.xRange * -1, playerControls.xRange);
+        float ySpawn = UnityEngine.Random.Range(playerControls.yMin, playerControls.yMax);
 
         currentLoop.transform.localPosition = new Vector3(xSpawn, ySpawn, zSpawn);
         zSpawn += distanceBetweenLoops;
@@ -59,14 +63,9 @@ public class LoopLoader : MonoBehaviour
 
     private void InitializeObjects()
     {
-        playerRig = GameObject.FindGameObjectWithTag("PlayerRig");
-        player = GameObject.FindGameObjectWithTag("Player");
-        music = GameObject.FindGameObjectWithTag("Music");
-
         parent = GetComponent<Transform>();
-        prm = playerRig.GetComponent<PlayerRigMovement>();
-        pc = player.GetComponent<PlayerControls>();
-        audioSource = music.GetComponent<AudioSource>();
-        songLength = audioSource.clip.length;
+        playerRigMovement = GameObject.FindGameObjectWithTag("PlayerRig").GetComponent<PlayerRigMovement>();
+        playerControls = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
+        songLength = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().clip.length;
     }
 }
