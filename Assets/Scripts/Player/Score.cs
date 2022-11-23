@@ -18,6 +18,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+        scoreMultiplier = 1;
         tempIdleTime = 0;
         loopsPassed = 0;
         score = 0;
@@ -29,14 +30,14 @@ public class Score : MonoBehaviour
         idleTime = LoopLoader.idleTime;
         tempIdleTime += Time.deltaTime;
 
-        if(tempIdleTime >= idleTime && scoreMultiplier > 0)
+        if(tempIdleTime >= idleTime && scoreMultiplier > 1)
         {
             scoreMultiplier--;
             tempIdleTime = 0;
             loopsPassed = 0;
         }
 
-        if (scoreMultiplier > 0)
+        if (scoreMultiplier > 1)
             MultiplierText.text = "x" + scoreMultiplier;
         else
             MultiplierText.text = "";

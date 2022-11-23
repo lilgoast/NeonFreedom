@@ -9,5 +9,10 @@ public class LoopTriger : MonoBehaviour
             Destroy(gameObject);
             Destroy(gameObject.transform.parent.gameObject);
         }
+        if(other.tag == "DestroyingPlane")
+        {
+            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 }

@@ -974,6 +974,14 @@ PrefabInstance:
       propertyPath: MultilpierText
       value: 
       objectReference: {fileID: 402134998}
+    - target: {fileID: 6722320154927955388, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: MultiplierText
+      value: 
+      objectReference: {fileID: 402134998}
+    - target: {fileID: 9168394776487573173, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9168394777640918374, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: m_RootOrder
       value: 0
