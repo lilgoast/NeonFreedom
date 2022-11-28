@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
@@ -19,7 +16,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreMultiplier = 1;
-        tempIdleTime = 0;
+        tempIdleTime = 0f;
         loopsPassed = 0;
         score = 0;
         ScoreText.text = score.ToString();

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelProgress : MonoBehaviour
 {
     private Slider levelProgressSlider;
-    private GameObject music;
     private float songLength;
     private float timePassed;
 
@@ -14,8 +11,7 @@ public class LevelProgress : MonoBehaviour
     {
         timePassed = 0;
         levelProgressSlider = GetComponentInChildren<Slider>();
-        music = GameObject.FindGameObjectWithTag("Music");
-        songLength = music.GetComponent<AudioSource>().clip.length;
+        songLength = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().clip.length;
         levelProgressSlider.maxValue = songLength;
     }
 
