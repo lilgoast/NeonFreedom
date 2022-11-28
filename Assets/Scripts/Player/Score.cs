@@ -42,7 +42,7 @@ public class Score : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Loop")
+        if(other.CompareTag("Loop"))
         {
             tempIdleTime = 0;
             ScoreText.text = (score += scoreMultiplier).ToString();

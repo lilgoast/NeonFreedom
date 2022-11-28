@@ -10,10 +10,11 @@ public class TerrainLoader : MonoBehaviour
 
     private Transform parent;
     private float zSpawn = 0;
-    private List<GameObject> activeTiles = new List<GameObject>();
+    private List<GameObject> activeTiles;
 
     private void Start()
     {
+        activeTiles = new List<GameObject>();
         parent = GetComponent<Transform>();
 
         for (int i = 0; i < amountOfTiles; i++)

@@ -7,16 +7,16 @@ using UnityEngine.UIElements;
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
+    [SerializeField] float controlPitchFactor = 20f;
+    [SerializeField] float controlRollFactor = 20f;
+    [SerializeField] float positionPitchFactor = -1f;
+    [SerializeField] float positionYawFactor = 1f; 
+    
     public float xRange = 2f;
     public float yMin = 0.2f;
     public float yMax = 2f;
 
-    [SerializeField] float controlPitchFactor = 20f;
-    [SerializeField] float controlRollFactor = 20f;
-    [SerializeField] float positionPitchFactor = -1f;
-    [SerializeField] float positionYawFactor = 1f;
-
-    float xThrow, yThrow;
+    private float xThrow, yThrow;
 
     private void Update()
     {

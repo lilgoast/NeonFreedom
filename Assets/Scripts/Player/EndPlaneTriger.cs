@@ -7,11 +7,10 @@ public class EndPlaneTriger : MonoBehaviour
     private bool endReached;
     private float cameraRotation;
     private GameObject mainCamera;
-    private PlayerRigMovement playerRigMovement;
+    private readonly PlayerRigMovement playerRigMovement;
 
     private void Start()
     {
-        playerRigMovement = gameObject.AddComponent<PlayerRigMovement>();
         cameraRotation = 0;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
@@ -31,7 +30,7 @@ public class EndPlaneTriger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "EndPanel")
+        if(other.CompareTag("EndPanel"))
         {
             endReached = true;
         }

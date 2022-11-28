@@ -4,12 +4,12 @@ public class LoopTriger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             Destroy(gameObject);
             Destroy(gameObject.transform.parent.gameObject);
         }
-        if(other.tag == "DestroyingPlane")
+        if(other.CompareTag("DestroyingPlane"))
         {
             Destroy(gameObject);
             Destroy(gameObject.transform.parent.gameObject);
