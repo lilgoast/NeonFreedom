@@ -7,10 +7,11 @@ public class EndPlaneTriger : MonoBehaviour
     private bool endReached;
     private float cameraRotation;
     private GameObject mainCamera;
-    private readonly PlayerRigMovement playerRigMovement;
+    private PlayerRigMovement playerRigMovement;
 
     private void Start()
     {
+        playerRigMovement = GameObject.FindGameObjectWithTag("PlayerRig").GetComponent<PlayerRigMovement>();
         cameraRotation = 0;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
@@ -19,7 +20,7 @@ public class EndPlaneTriger : MonoBehaviour
     {
         if(endReached)
         {
-            if(cameraRotation <= 90)
+            if(cameraRotation <= 60)
             {
                 mainCamera.transform.localPosition = new Vector3(mainCamera.transform.localPosition.x, mainCamera.transform.localPosition.y, mainCamera.transform.localPosition.z + (playerRigMovement.moveSpeed * Time.deltaTime));
                 mainCamera.transform.rotation = Quaternion.Euler(mainCamera.transform.rotation.x - cameraRotation, mainCamera.transform.rotation.y, mainCamera.transform.rotation.z);
