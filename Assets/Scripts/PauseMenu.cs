@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -23,6 +24,28 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void ResumeButton()
+    {
+        ResumeGame();
+    }    
+    
+    public void MainMenuButton()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        SceneManager.LoadScene("MainMenu");
+    }    
+    
+    public void RestartButton()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
@@ -38,4 +61,6 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Play();
     }
+
+
 }

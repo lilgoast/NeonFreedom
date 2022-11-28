@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1787384996}
   - component: {fileID: 1787384995}
   m_Layer: 0
-  m_Name: DestroyingPlane
+  m_Name: destroying plane
   m_TagString: DestroyingPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9168394778239618127}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000034272665}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000034461564}
   m_LocalPosition: {x: 0, y: 1.68, z: 3.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -565,13 +565,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  xRange: 1.8
-  yMin: 0.2
-  yMax: 2
   controlPitchFactor: 20
   controlRollFactor: 20
   positionPitchFactor: -1
   positionYawFactor: 1
+  xRange: 1.8
+  yMin: 0.2
+  yMax: 2
+--- !u!114 &1375426448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358056010419337462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2895e8a273c124faac41a5b362aa6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRotationSpeed: 0.1
 --- !u!4 &8698165036317450828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 593f8e92ef84e4b4cbee2f712bdd0e11, type: 3}
