@@ -10,6 +10,8 @@ TagManager:
   - DestroyingPlane
   - EndPanel
   - LevelProgress
+  - PauseMenu
+  - OptionsMenu
   layers:
   - Default
   - TransparentFX
