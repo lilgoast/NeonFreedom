@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartCountdown : MonoBehaviour
 {
-    public TextMeshProUGUI coundown;
+    public TextMeshProUGUI countdown;
 
     void Start()
     {
@@ -20,14 +20,14 @@ public class StartCountdown : MonoBehaviour
         while (Time.realtimeSinceStartup - startTime < 3)
         {
             if (Time.realtimeSinceStartup - startTime > 2)
-                coundown.text = "1";
+                countdown.text = "1";
             else if (Time.realtimeSinceStartup - startTime > 1)
-                coundown.text = "2";
+                countdown.text = "2";
             else
-                coundown.text = "3";
+                countdown.text = "3";
             yield return null;
         }
-        coundown.text = "";
+        countdown.text = "";
         PauseMenu.isCountingDown = false;
         Time.timeScale = 1f;
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Play();

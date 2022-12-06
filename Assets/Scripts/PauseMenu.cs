@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionsMenu;
     public static bool isPaused;
     public TextMeshProUGUI coundown;
-
     public static bool isCountingDown;
 
     void Start()
@@ -28,6 +27,11 @@ public class PauseMenu : MonoBehaviour
             else
                 PauseGame();
         }
+
+        if(isCountingDown)
+        {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Pause();
+        }
     }
 
     public void ResumeButton()
@@ -37,17 +41,13 @@ public class PauseMenu : MonoBehaviour
     
     public void MainMenuButton()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
+        ClosePauseMenu();
         SceneManager.LoadScene("MainMenu");
     }    
     
     public void RestartButton()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
+        ClosePauseMenu();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -77,7 +77,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
         StartCoroutine(WaitAfterUnpause());
+    }
 
+    private void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     private IEnumerator WaitAfterUnpause()
