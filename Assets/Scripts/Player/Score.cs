@@ -7,8 +7,9 @@ public class Score : MonoBehaviour
     [SerializeField] TextMeshProUGUI MultiplierText;
     [SerializeField] int loopToMiltiply = 5;
 
+    public static int score;
+
     private int loopsPassed;
-    private int score;
     private int scoreMultiplier;
     private float idleTime;
     private float tempIdleTime;

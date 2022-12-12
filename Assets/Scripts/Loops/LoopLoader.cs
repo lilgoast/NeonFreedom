@@ -39,7 +39,7 @@ public class LoopLoader : MonoBehaviour
 
     private void LoopsCalculation()
     {
-        amountOfLoops = (songBPM * (songLength/ 60)) / loopReducer;
+        amountOfLoops = songBPM * (songLength/ 60) / loopReducer;
         distanceBetweenLoops = (songLength * playerRigMovement.moveSpeed) / amountOfLoops;
         zSpawn = distanceBetweenLoops;
         idleTime = songLength / amountOfLoops + 0.1f;
@@ -49,8 +49,8 @@ public class LoopLoader : MonoBehaviour
     {
         GameObject currentLoop = Instantiate(loopPrefab, transform.forward * zSpawn, Quaternion.Euler(90, 0, 0), parent);
 
-        float xSpawn = UnityEngine.Random.Range(playerControls.xRange * -1, playerControls.xRange);
-        float ySpawn = UnityEngine.Random.Range(playerControls.yMin, playerControls.yMax);
+        float xSpawn = Random.Range(playerControls.xRange * -1, playerControls.xRange);
+        float ySpawn = Random.Range(playerControls.yMin, playerControls.yMax);
 
         currentLoop.transform.localPosition = new Vector3(xSpawn, ySpawn, zSpawn);
         zSpawn += distanceBetweenLoops;
