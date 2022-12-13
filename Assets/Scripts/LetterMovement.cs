@@ -7,44 +7,69 @@ using UnityEngine.UIElements;
 
 public class LetterMovement : MonoBehaviour
 {
-    [SerializeField] GameObject letterF;
+    [SerializeField] GameObject letterK;
     [SerializeField] GameObject letterJ;
+    [SerializeField] GameObject StopPanel;
     [SerializeField] float SongBMP = 100f;
 
-    private GameObject F;
+    private GameObject K;
     private GameObject J;
+    private GameObject SP;
     private Transform parent;
-    private RectTransform rectTransformF;
+    private RectTransform rectTransformK;
     private RectTransform rectTransformJ;
     private float moved = 0;
     private Vector3 startVector;
     private float oneBeatTime;
     private bool letterChanger = true;
+    private float newPosition;
 
     void Start()
     {
         oneBeatTime = 60 / SongBMP;
         parent = GetComponent<Transform>();
-        F = Instantiate(letterF, parent);
+        SP = Instantiate(StopPanel, parent);
+        K = Instantiate(letterK, parent);
         J = Instantiate(letterJ, parent);
-        rectTransformF = F.GetComponent<RectTransform>();
+        rectTransformK = K.GetComponent<RectTransform>();
         rectTransformJ = J.GetComponent<RectTransform>();
-        startVector = rectTransformF.localPosition;
-        F.SetActive(false);
-        J.SetActive(true);
+        startVector = rectTransformK.localPosition;
+        K.SetActive(true);
+        J.SetActive(false);
+
+        SP.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.currentResolution.width / 2 * oneBeatTime, 0);
     }
 
     private void Update()
     {
-        if (moved <= oneBeatTime)
+
+        if (moved < oneBeatTime + (oneBeatTime / 10))
         {
-            if(letterChanger)
+            newPosition = Screen.currentResolution.width / 2 * Time.deltaTime;
+
+            if (letterChanger)
             {
-                rectTransformF.localPosition -= new Vector3(700 * Time.deltaTime, 0, 0);
+                rectTransformK.localPosition -= new Vector3(newPosition, 0, 0);
+                if(Input.GetKeyDown(KeyCode.K))
+                {
+                    if(moved < oneBeatTime + (oneBeatTime / 10) && moved > oneBeatTime - (oneBeatTime / 10))
+                    {
+                        Score.score += 5;
+                    }
+                    K.SetActive(false);
+                }
             }
             else
             {
-                rectTransformJ.localPosition -= new Vector3(700 * Time.deltaTime, 0, 0);
+                rectTransformJ.localPosition -= new Vector3(newPosition, 0, 0);
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    if (moved < oneBeatTime + (oneBeatTime / 10) && moved > oneBeatTime - (oneBeatTime / 10))
+                    {
+                        Score.score += 5;
+                    }
+                    J.SetActive(false);
+                }
             }
             moved += Time.deltaTime;
         }
@@ -52,19 +77,20 @@ public class LetterMovement : MonoBehaviour
         {
             if (letterChanger)
             {
-                F.SetActive(false);
+                K.SetActive(false);
                 J.SetActive(true);
             }
             else
             {
-                F.SetActive(true);
+                K.SetActive(true);
                 J.SetActive(false);
             }
+
             letterChanger = !letterChanger;
+
             rectTransformJ.localPosition = startVector;
-            rectTransformF.localPosition = startVector;
+            rectTransformK.localPosition = startVector;
             moved = 0;
-            Debug.Log(oneBeatTime);
         }
 
     }

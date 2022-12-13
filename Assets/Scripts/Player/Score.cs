@@ -25,6 +25,8 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
+        ScoreText.text = score.ToString();
+
         idleTime = LoopLoader.idleTime;
         tempIdleTime += Time.deltaTime;
 
