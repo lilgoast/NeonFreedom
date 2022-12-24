@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 79549260}
   m_Layer: 0
-  m_Name: testfeature
+  m_Name: RhythmTapping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,6 +620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &592215838 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 592215838, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+  m_PrefabInstance: {fileID: 9168394777290203454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +859,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 934102310, guid: afa078b2be9a900408219be232304784, type: 3}
   m_PrefabInstance: {fileID: 4539044927612302174}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &972065249 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 972065249, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+  m_PrefabInstance: {fileID: 9168394777290203454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &978597283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4539044928042993405, guid: afa078b2be9a900408219be232304784, type: 3}
@@ -1040,7 +1050,7 @@ GameObject:
   - component: {fileID: 1457258583}
   - component: {fileID: 1457258582}
   m_Layer: 0
-  m_Name: testfeture spawner
+  m_Name: RhythmTapping spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,6 +1091,8 @@ MonoBehaviour:
   letterK: {fileID: 1311802070}
   letterJ: {fileID: 238383791}
   SongBMP: 115
+  tapMissParticle: {fileID: 972065249}
+  tapHitParticle: {fileID: 592215838}
 --- !u!114 &1457258583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,10 +1586,6 @@ PrefabInstance:
       propertyPath: MultiplierText
       value: 
       objectReference: {fileID: 402134998}
-    - target: {fileID: 9168394776487573173, guid: 507af684c0549594c9adf7df59e646de, type: 3}
-      propertyPath: moveSpeed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 9168394777640918374, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: m_RootOrder
       value: 0
