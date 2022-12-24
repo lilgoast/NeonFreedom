@@ -47,13 +47,13 @@ public class LoopLoader : MonoBehaviour
 
     private void CreateLoop()
     {
+        zSpawn += distanceBetweenLoops;
         GameObject currentLoop = Instantiate(loopPrefab, transform.forward * zSpawn, Quaternion.Euler(90, 0, 0), parent);
 
         float xSpawn = Random.Range(playerControls.xRange * -1, playerControls.xRange);
         float ySpawn = Random.Range(playerControls.yMin, playerControls.yMax);
 
         currentLoop.transform.localPosition = new Vector3(xSpawn, ySpawn, zSpawn);
-        zSpawn += distanceBetweenLoops;
     }
 
     private void InitializeObjects()
