@@ -10,13 +10,15 @@ public class LetterMovement : MonoBehaviour
     [SerializeField] GameObject letterK;
     [SerializeField] GameObject letterJ;
     [SerializeField] float SongBMP = 100f;
+    [SerializeField] ParticleSystem tapMissParticle;
+    [SerializeField] ParticleSystem tapHitParticle;
 
     private GameObject K;
     private GameObject J;
     private Transform parent;
     private float oneBeatTime;
     private float timePassed = 0;
-    private bool letterChanger;
+    private bool letterChanger, tapHitted;
 
     void Start()
     {
@@ -33,22 +35,32 @@ public class LetterMovement : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K) && K.activeSelf)
+        if(!tapHitted)
         {
-            K.SetActive(false);
-            Score.score += 5;
-        }
+            if (Input.GetKeyDown(KeyCode.K) && K.activeSelf)
+            {
+                K.SetActive(false);
+                tapHitParticle.Play();
+                tapHitted = true;
+                Score.AddScore(5);
+            }
 
-        if (Input.GetKeyDown(KeyCode.J) && J.activeSelf)
-        {
-            J.SetActive(false);
-            Score.score += 5;
+            if (Input.GetKeyDown(KeyCode.J) && J.activeSelf)
+            {
+                J.SetActive(false);
+                tapHitParticle.Play();
+                tapHitted = true;
+                Score.AddScore(5);
+            }
         }
-
-        timePassed += Time.deltaTime;
 
         if(timePassed >= oneBeatTime)
         {
+            if(!tapHitted)
+            {
+                tapMissParticle.Play();
+            }
+
             if (letterChanger)
             {
                 K.SetActive(true);
@@ -62,6 +74,9 @@ public class LetterMovement : MonoBehaviour
 
             letterChanger = !letterChanger;
             timePassed = 0;
+            tapHitted = false;
         }
+
+        timePassed += Time.deltaTime;
     }
 }

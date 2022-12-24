@@ -7,8 +7,7 @@ public class Score : MonoBehaviour
     [SerializeField] TextMeshProUGUI MultiplierText;
     [SerializeField] int loopToMiltiply = 5;
 
-    public static int score;
-
+    private static int score;
     private int loopsPassed;
     private int scoreMultiplier;
     private float idleTime;
@@ -27,15 +26,7 @@ public class Score : MonoBehaviour
     {
         ScoreText.text = score.ToString();
 
-        idleTime = LoopLoader.idleTime;
-        tempIdleTime += Time.deltaTime;
-
-        if(tempIdleTime >= idleTime && scoreMultiplier > 1)
-        {
-            scoreMultiplier--;
-            tempIdleTime = 0;
-            loopsPassed = 0;
-        }
+        DecreaseMultiplier();
 
         if (scoreMultiplier > 1)
             MultiplierText.text = "x" + scoreMultiplier;
@@ -45,18 +36,42 @@ public class Score : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Loop"))
+        if (other.CompareTag("Loop"))
         {
             tempIdleTime = 0;
-            ScoreText.text = (score += scoreMultiplier).ToString();
-            loopsPassed++;
-            if (loopsPassed == loopToMiltiply)
-            {
-                if(scoreMultiplier < 7)
-                    scoreMultiplier++;
-                loopsPassed = 0;
-            }
+
+            AddScore(scoreMultiplier);
+            ScoreText.text = score.ToString();
+            IncreaseMultilier();
         }
     }
 
+    private void DecreaseMultiplier()
+    {
+        idleTime = LoopLoader.idleTime;
+        tempIdleTime += Time.deltaTime;
+
+        if (tempIdleTime >= idleTime && scoreMultiplier > 1)
+        {
+            scoreMultiplier--;
+            tempIdleTime = 0;
+            loopsPassed = 0;
+        }
+    }
+
+    private void IncreaseMultilier()
+    {
+        loopsPassed++;
+        if (loopsPassed == loopToMiltiply)
+        {
+            if (scoreMultiplier < 7)
+                scoreMultiplier++;
+            loopsPassed = 0;
+        }
+    }
+
+    public static void AddScore(int scoreAmount)
+    {
+        score += scoreAmount;
+    }
 }
