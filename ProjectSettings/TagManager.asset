@@ -12,6 +12,7 @@ TagManager:
   - LevelProgress
   - PauseMenu
   - OptionsMenu
+  - RhythmTapping
   layers:
   - Default
   - TransparentFX

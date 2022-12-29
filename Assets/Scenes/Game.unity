@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79549258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1238.6337, y: 773.4804, z: -856.05725}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 95006668}
   - component: {fileID: 95006667}
   m_Layer: 5
-  m_Name: J
+  m_Name: LeftLetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: J
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eea4a1e46f49f17449ec24334cb878ec, type: 2}
   m_sharedMaterial: {fileID: -3237752254372275600, guid: eea4a1e46f49f17449ec24334cb878ec, type: 2}
@@ -521,6 +521,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198342901}
   m_CullTransparentMesh: 1
+--- !u!114 &221656896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 138263089580856518, guid: afa078b2be9a900408219be232304784, type: 3}
+  m_PrefabInstance: {fileID: 4539044927612302174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &238383791
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +544,7 @@ GameObject:
   - component: {fileID: 238383794}
   - component: {fileID: 238383793}
   m_Layer: 5
-  m_Name: J panel
+  m_Name: LeftLetter panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,6 +640,22 @@ MonoBehaviour:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 592215838, guid: 507af684c0549594c9adf7df59e646de, type: 3}
   m_PrefabInstance: {fileID: 9168394777290203454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &637533253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1057976973013888175, guid: afa078b2be9a900408219be232304784, type: 3}
+  m_PrefabInstance: {fileID: 4539044927612302174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &690170222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 363419591335851677, guid: e7766b340c250cd49aa209d234d039fa, type: 3}
+  m_PrefabInstance: {fileID: 363419591322082002}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -782,7 +809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: K
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eea4a1e46f49f17449ec24334cb878ec, type: 2}
   m_sharedMaterial: {fileID: -3237752254372275600, guid: eea4a1e46f49f17449ec24334cb878ec, type: 2}
@@ -946,7 +973,7 @@ GameObject:
   - component: {fileID: 1311802073}
   - component: {fileID: 1311802072}
   m_Layer: 5
-  m_Name: K panel
+  m_Name: RightLetter panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1016,7 +1043,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 363419591335851651, guid: e7766b340c250cd49aa209d234d039fa, type: 3}
   m_PrefabInstance: {fileID: 363419591322082002}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 690170222}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10e214615214e5347a3699e7a7ef1ba9, type: 3}
@@ -1115,7 +1142,7 @@ GameObject:
   - component: {fileID: 1457258586}
   m_Layer: 0
   m_Name: RhythmTapping spawner
-  m_TagString: Untagged
+  m_TagString: RhythmTapping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1213,16 +1240,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abdcdd0747ba9b4e820cb73c10439de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterK: {fileID: 1311802070}
-  letterJ: {fileID: 238383791}
+  letterLeftPanel: {fileID: 238383791}
+  letterRightPanel: {fileID: 1311802070}
   SongBMP: 115
-  tapMissParticleJ: {fileID: 1112545724}
-  tapHitParticleJ: {fileID: 592215838}
-  tapMissParticleK: {fileID: 972065249}
-  tapHitParticleK: {fileID: 1399129839}
+  tapMissParticleLeft: {fileID: 1112545724}
+  tapHitParticleLeft: {fileID: 592215838}
+  tapMissParticleRight: {fileID: 972065249}
+  tapHitParticleRight: {fileID: 1399129839}
 --- !u!1 &1740070001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4539044929299148591, guid: afa078b2be9a900408219be232304784, type: 3}
+  m_PrefabInstance: {fileID: 4539044927612302174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1833455260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1733987839603117395, guid: afa078b2be9a900408219be232304784, type: 3}
+  m_PrefabInstance: {fileID: 4539044927612302174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2057832451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8150884074570473328, guid: afa078b2be9a900408219be232304784, type: 3}
   m_PrefabInstance: {fileID: 4539044927612302174}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071017303
@@ -1238,7 +1275,7 @@ GameObject:
   - component: {fileID: 2071017306}
   - component: {fileID: 2071017305}
   m_Layer: 5
-  m_Name: K
+  m_Name: RightLetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,12 +1441,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 430226699236573941, guid: e7766b340c250cd49aa209d234d039fa, type: 3}
   m_PrefabInstance: {fileID: 363419591322082002}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 690170222}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23b1792ea78f62f4ea35a5f055375073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &363419591322082004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690170222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767a9a73631a14f4cb24e81b1b8089be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLeft: {fileID: 221656896}
+  buttonRight: {fileID: 637533253}
 --- !u!1001 &936830429737927378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1558,6 +1609,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1334498727}
+    - target: {fileID: 416874061176131356, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: buttonRight Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 1369113986662410519, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1566,14 +1621,146 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1733987839603117395, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: ButtonRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 363419591322082004}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KeyBindScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1833455260}
+    - target: {fileID: 1870630367769396316, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2883332614464016089, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144945440809029293, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: buttonLeft Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 363419591322082004}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KeyBindScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2057832451}
+    - target: {fileID: 3698492031367902564, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3790178138863585032, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1334498727}
+    - target: {fileID: 4073743675529096941, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: Text2
+      objectReference: {fileID: 0}
     - target: {fileID: 4539044927317899669, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1
@@ -1946,6 +2133,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4795206662294511545, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795206662294511545, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795206662294511545, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795206662294511545, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4965615985543895352, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1969,6 +2172,10 @@ PrefabInstance:
     - target: {fileID: 5132699137703792592, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613976987415397758, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: Text1
       objectReference: {fileID: 0}
     - target: {fileID: 6002310847495947070, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Value
@@ -2006,6 +2213,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7351222769893619858, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_text
+      value: 'Right button:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376455059127051655, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 7558958934915127920, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -2022,9 +2237,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8150884074570473328, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_Name
+      value: ButtonLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 8608811885903245650, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937455762892720837, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_text
+      value: 'Left button:'
       objectReference: {fileID: 0}
     - target: {fileID: 9178319489793817462, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Name
@@ -2098,6 +2321,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 592215835, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: m_Name
+      value: Tap Hitted Particle LeftLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 972065246, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: m_Name
+      value: Tap Missed Particle RightLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112545721, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: m_Name
+      value: Tap Missed Particle LeftLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399129838, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: m_Name
+      value: Tap Hitted Particle RightLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895607647369040264, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: m_Size
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 6722320154927955388, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: ScoreText
       value: 

@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RhythmTapping : MonoBehaviour
 {
-    [SerializeField] GameObject letterK;
-    [SerializeField] GameObject letterJ;
+    [SerializeField] GameObject letterLeftPanel;
+    [SerializeField] GameObject letterRightPanel;
     [SerializeField] float SongBMP = 100f;
-    [SerializeField] ParticleSystem tapMissParticleJ;
-    [SerializeField] ParticleSystem tapHitParticleJ;
-    [SerializeField] ParticleSystem tapMissParticleK;
-    [SerializeField] ParticleSystem tapHitParticleK;
+    [SerializeField] ParticleSystem tapMissParticleLeft;
+    [SerializeField] ParticleSystem tapHitParticleLeft;
+    [SerializeField] ParticleSystem tapMissParticleRight;
+    [SerializeField] ParticleSystem tapHitParticleRight;
 
-    private GameObject K;
-    private GameObject J;
+    private GameObject objectLetterRight;
+    private GameObject objectLetterLeft;
     private Transform parent;
     private float oneBeatTime;
     private float timePassedFromLastLoop = 0;
     private bool letterChanger;
     private bool tapHitted, tapMissed;
+    private KeyCode leftLetterCode;
+    private KeyCode rightLetterCode;
 
     void Start()
     {
@@ -26,38 +29,39 @@ public class RhythmTapping : MonoBehaviour
 
         parent = GetComponent<Transform>();
 
-        K = Instantiate(letterK, parent);
-        J = Instantiate(letterJ, parent);
+        objectLetterRight = Instantiate(letterRightPanel, parent);
+        objectLetterLeft = Instantiate(letterLeftPanel, parent);
 
-        K.SetActive(true);
-        J.SetActive(false);
+        objectLetterRight.SetActive(true);
+        objectLetterLeft.SetActive(false);
+        ChangeKeys();
     }
 
     private void Update()
     {
         if (!tapHitted && !tapMissed && !PauseMenu.isPaused)
         {
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(rightLetterCode))
             {
-                if (J.activeSelf)
+                if (objectLetterLeft.activeSelf)
                 {
                     tapMissed = true;
                 }
                 else
                 {
-                    K.SetActive(false);
+                    objectLetterRight.SetActive(false);
                     RegisterHit();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.J))
+            else if (Input.GetKeyDown(leftLetterCode))
             {
-                if (K.activeSelf)
+                if (objectLetterRight.activeSelf)
                 {
                     tapMissed = true;
                 }
                 else
                 {
-                    J.SetActive(false);
+                    objectLetterLeft.SetActive(false);
                     RegisterHit();
                 }
             }
@@ -67,23 +71,23 @@ public class RhythmTapping : MonoBehaviour
         {
             if (letterChanger)
             {
-                K.SetActive(true);
-                J.SetActive(false);
+                objectLetterRight.SetActive(true);
+                objectLetterLeft.SetActive(false);
 
                 if (!tapHitted || tapMissed)
-                    tapMissParticleJ.Play();
+                    tapMissParticleLeft.Play();
                 else
-                    tapHitParticleJ.Play();
+                    tapHitParticleLeft.Play();
             }
             else
             {
-                K.SetActive(false);
-                J.SetActive(true);
+                objectLetterRight.SetActive(false);
+                objectLetterLeft.SetActive(true);
 
                 if (!tapHitted || tapMissed)
-                    tapMissParticleK.Play();
+                    tapMissParticleRight.Play();
                 else
-                    tapHitParticleK.Play();
+                    tapHitParticleRight.Play();
             }
 
             letterChanger = !letterChanger;
@@ -99,5 +103,13 @@ public class RhythmTapping : MonoBehaviour
     {
         Score.AddScore(5);
         tapHitted = true;
+    }
+
+    public void ChangeKeys()
+    {
+        objectLetterLeft.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetString("ButtonLeft", "J");
+        objectLetterRight.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetString("ButtonRight", "K");
+        leftLetterCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ButtonLeft", "J"));
+        rightLetterCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ButtonRight", "K"));
     }
 }
