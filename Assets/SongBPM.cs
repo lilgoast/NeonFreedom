@@ -6,7 +6,7 @@ public class SongBPM : MonoBehaviour
 
     private static float bpm;
 
-    private void Start()
+    private void Awake()
     {
         BPM = setSongBPM;
     }
