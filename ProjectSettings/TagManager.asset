@@ -13,6 +13,8 @@ TagManager:
   - PauseMenu
   - OptionsMenu
   - RhythmTapping
+  - UI
+  - Game Manager
   layers:
   - Default
   - TransparentFX

@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class StartCountdown : MonoBehaviour
 {
-    public TextMeshProUGUI countdown;
+    public GameObject countdownPanel;
+
+    private TextMeshProUGUI countdown;
 
     void Start()
     {
+        countdown = countdownPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         Time.timeScale = 0f;
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Pause(); 
         StartCoroutine(Countdown());
     }
 
-    private IEnumerator Countdown()
+    public IEnumerator Countdown()
     {
+        countdownPanel.SetActive(true);
         float startTime = Time.realtimeSinceStartup;
         PauseMenu.isCountingDown = true;
         while (Time.realtimeSinceStartup - startTime < 3)
@@ -28,6 +32,7 @@ public class StartCountdown : MonoBehaviour
             yield return null;
         }
         countdown.text = "";
+        countdownPanel.SetActive(false);
         PauseMenu.isCountingDown = false;
         Time.timeScale = 1f;
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Play();

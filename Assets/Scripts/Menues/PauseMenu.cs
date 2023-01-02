@@ -9,11 +9,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public static bool isPaused;
-    public TextMeshProUGUI coundown;
+    public GameObject countdownPanel; 
     public static bool isCountingDown;
+
+    private TextMeshProUGUI countdown;
 
     void Start()
     {
+        countdown = countdownPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
     }
@@ -88,19 +91,21 @@ public class PauseMenu : MonoBehaviour
 
     private IEnumerator WaitAfterUnpause()
     {
+        countdownPanel.SetActive(true);
         float startTime = Time.realtimeSinceStartup;
         isCountingDown = true;
         while (Time.realtimeSinceStartup - startTime < 3)
         {
             if (Time.realtimeSinceStartup - startTime > 2)
-                coundown.text = "1";
+                countdown.text = "1";
             else if (Time.realtimeSinceStartup - startTime > 1)
-                coundown.text = "2";
+                countdown.text = "2";
             else
-                coundown.text = "3";
+                countdown.text = "3";
             yield return null;
         }
-        coundown.text = "";
+        countdown.text = "";
+        countdownPanel.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
         isCountingDown = false;

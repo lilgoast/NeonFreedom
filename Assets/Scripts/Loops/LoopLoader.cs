@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class LoopLoader : MonoBehaviour
 {
-    [SerializeField] float songBPM = 100f;
     [SerializeField] float loopReducer = 100f;
     [SerializeField] GameObject loopPrefab;
     [SerializeField] GameObject endPanelPrefab;
@@ -39,7 +38,7 @@ public class LoopLoader : MonoBehaviour
 
     private void LoopsCalculation()
     {
-        amountOfLoops = songBPM * (songLength/ 60) / loopReducer;
+        amountOfLoops = SongBPM.BPM * (songLength/ 60) / loopReducer;
         distanceBetweenLoops = (songLength * playerRigMovement.moveSpeed) / amountOfLoops;
         zSpawn = distanceBetweenLoops;
         idleTime = songLength / amountOfLoops + 0.1f;

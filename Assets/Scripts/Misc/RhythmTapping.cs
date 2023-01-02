@@ -7,7 +7,6 @@ public class RhythmTapping : MonoBehaviour
 {
     [SerializeField] GameObject letterLeftPanel;
     [SerializeField] GameObject letterRightPanel;
-    [SerializeField] float SongBMP = 100f;
     [SerializeField] ParticleSystem tapMissParticleLeft;
     [SerializeField] ParticleSystem tapHitParticleLeft;
     [SerializeField] ParticleSystem tapMissParticleRight;
@@ -25,7 +24,7 @@ public class RhythmTapping : MonoBehaviour
 
     void Start()
     {
-        oneBeatTime = 60 / SongBMP;
+        oneBeatTime = 60 / SongBPM.BPM;
 
         parent = GetComponent<Transform>();
 
