@@ -5,15 +5,16 @@ public class TerrainLoader : MonoBehaviour
 {
     [SerializeField] int amountOfTiles = 10;
     [SerializeField] float tileLength = 32f;
-    [SerializeField] GameObject tilePrefab;
     [SerializeField] Transform playerTransform;
 
     private Transform parent;
     private float zSpawn = 0;
     private List<GameObject> activeTiles;
+    private GameObject tilePrefab;
 
     private void Start()
     {
+        tilePrefab = transform.GetChild(0).gameObject;
         activeTiles = new List<GameObject>();
         parent = GetComponent<Transform>();
 

@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject optionsMenu;
+    [SerializeField] Animator animator;
 
+    public AudioMixer audioMixer;
     private void Start()
     {
         audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("gameVolume", 0));
@@ -19,6 +23,6 @@ public class Options : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene("MainMenu");
+        animator.Play("GoToMainMenu", 0, 0.0f);
     }
 }

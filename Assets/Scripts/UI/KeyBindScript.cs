@@ -8,16 +8,25 @@ public class KeyBindScript : MonoBehaviour
 {
 
     public TextMeshProUGUI buttonLeft, buttonRight;
+    public Color selected = new(255, 255, 255, 128);
 
+    private Color normal = new(0, 0, 0, 128);
     private GameObject currentKey;
-    private Color32 normal = new(0, 0, 0, 128);
-    private Color32 selected = new(255, 255, 255, 128);
     private readonly Dictionary<string, KeyCode> keyBinds = new();
     private RhythmTapping rhythmTapping;
+    private bool rtExist;
 
     void Start()
     {
-        rhythmTapping = GameObject.FindGameObjectWithTag("RhythmTapping").GetComponent<RhythmTapping>();
+        try
+        {
+            rhythmTapping = GameObject.FindGameObjectWithTag("RhythmTapping").GetComponent<RhythmTapping>();
+            rtExist = true;
+        }
+        catch { 
+            Debug.Log("RhythmTapping is don't exist");
+            rtExist = false;
+        }
 
         keyBinds.Add("ButtonLeft",(KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ButtonLeft", "J")));
         keyBinds.Add("ButtonRight",(KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ButtonRight", "K")));
@@ -32,26 +41,29 @@ public class KeyBindScript : MonoBehaviour
         {
             Event e = Event.current;
 
-            if(e.isKey)
+            if (e.isKey)
             {
                 keyBinds[currentKey.name] = e.keyCode;
                 currentKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = e.keyCode.ToString();
                 currentKey.GetComponent<Image>().color = normal;
                 currentKey = null;
                 SaveKeyBinds();
-                rhythmTapping.ChangeKeys();
+                
+                if(rtExist)
+                    rhythmTapping.ChangeKeys();
             }
         }
     }
 
     public void ChangeKey(GameObject clicked)
     {
-        if(currentKey != null)
+        if (currentKey != null)
         {
             currentKey.GetComponent<Image>().color = normal;
         }
 
         currentKey = clicked;
+        normal = currentKey.GetComponent<Image>().color;
         currentKey.GetComponent<Image>().color = selected;
     }
 
