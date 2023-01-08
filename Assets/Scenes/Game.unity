@@ -151,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: d69cc4cf25e3bd1469b840474efb1bec, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 39f5f0e2c05788641acb3b764417e581, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4de4b4b07c4d2094e87efb84d66263d8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -245,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120769705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5027736, y: 2.8342872, z: -2.3536391}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d72dd8542206e3459b61972c1ea3dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setSongBPM: 95
 --- !u!114 &221656896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 138263089580856518, guid: afa078b2be9a900408219be232304784, type: 3}
@@ -664,6 +663,19 @@ MonoBehaviour:
   buttonLeft: {fileID: 221656896}
   buttonRight: {fileID: 637533253}
   selected: {r: 255, g: 255, b: 255, a: 128}
+--- !u!114 &363419591322082005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690170222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f033312d0514d314ca776bdd0e36667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BPMReducer: 1
 --- !u!1001 &775133031204679386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,7 +1180,11 @@ PrefabInstance:
       objectReference: {fileID: 1334498727}
     - target: {fileID: 3938840405179854471, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938840405179854471, guid: afa078b2be9a900408219be232304784, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 4073743675529096941, guid: afa078b2be9a900408219be232304784, type: 3}
       propertyPath: m_Name
@@ -1824,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168394776487573173, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: moveSpeed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9168394777640918374, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: m_RootOrder
@@ -1869,6 +1885,10 @@ PrefabInstance:
     - target: {fileID: 9168394777640918374, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168394777640918375, guid: 507af684c0549594c9adf7df59e646de, type: 3}
+      propertyPath: moveSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9168394777640918376, guid: 507af684c0549594c9adf7df59e646de, type: 3}
       propertyPath: m_Name

@@ -38,9 +38,9 @@ public class LoopLoader : MonoBehaviour
 
     private void LoopsCalculation()
     {
-        amountOfLoops = SongBPM.BPM * (songLength/ 60) / loopReducer;
+        amountOfLoops = SongBPM.BPM * (songLength / 60) / loopReducer;
         distanceBetweenLoops = (songLength * playerRigMovement.moveSpeed) / amountOfLoops;
-        zSpawn = distanceBetweenLoops;
+        zSpawn = distanceBetweenLoops * 3;
         idleTime = songLength / amountOfLoops + 0.1f;
     }
 

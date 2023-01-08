@@ -2,14 +2,7 @@ using UnityEngine;
 
 public class SongBPM : MonoBehaviour
 {
-    [SerializeField] float setSongBPM;
-
     private static float bpm;
-
-    private void Awake()
-    {
-        BPM = setSongBPM;
-    }
 
     public static float BPM
     {
