@@ -5,11 +5,14 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject playMenu;
     [SerializeField] Animator animator;
 
     public void Play()
     {
-        SceneManager.LoadScene("Game");
+        animator.Play("GoToPlayMenu", 0, 0.0f);
+        playMenu.SetActive(true);
+        //SceneManager.LoadScene("Game");
     }
 
     public void Options()

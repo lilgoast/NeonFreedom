@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 4f;
     [SerializeField] float controlPitchFactor = 20f;
     [SerializeField] float controlRollFactor = 20f;
     [SerializeField] float positionPitchFactor = -1f;
@@ -15,8 +14,14 @@ public class PlayerControls : MonoBehaviour
     public float xRange = 2f;
     public float yMin = 0.2f;
     public float yMax = 2f;
+    private float moveSpeed;
 
     private float xThrow, yThrow;
+
+    private void Start()
+    {
+        moveSpeed = SongBPM.BPM / 20;
+    }
 
     private void Update()
     {

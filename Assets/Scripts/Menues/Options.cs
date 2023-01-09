@@ -23,6 +23,6 @@ public class Options : MonoBehaviour
 
     public void Back()
     {
-        animator.Play("GoToMainMenu", 0, 0.0f);
+        animator.Play("GoToMainMenuFromOptions", 0, 0.0f);
     }
 }

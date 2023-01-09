@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class KeyBindScript : MonoBehaviour
 {
-
     public TextMeshProUGUI buttonLeft, buttonRight;
     public Color selected = new(255, 255, 255, 128);
 
